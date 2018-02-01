@@ -16,6 +16,12 @@
     <link href="css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
     <link href="css/style.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.tools.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+    $("img[rel]").overlay();
+    });
+    </script>
 </head>
 
 
@@ -105,7 +111,32 @@
             <div class="col-md-6">
             	<center><img src="img/google pixel 2.jpg"></center>
             	<hr>
-            	<button class="btn btn-primary btn-block"><i class="fa fa-magic mr-1"></i> Pictures</button>
+            	<button class="btn btn-primary btn-block" id="pic" onclick="showImage();"><i class="fa fa-magic mr-1" value="Ajax Button"></i> Pictures</button>
+                
+                <table>
+                    <tr>
+                        <td>
+                            <center>
+                                <img id="loadingImage" width="40%" src="img/pic 1.jpg" style="visibility:hidden"/>
+                            </center>
+                        </td>
+                    </tr>
+                    <br>
+                    <tr>
+                        <td>
+                            <center>
+                            <img id="loadingImage2" width="40%" src="img/pic 2.jpg" style="visibility:hidden"/>
+                            </center>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <center>
+                            <img id="loadingImage3" width="40%" src="img/pic 3.jpg" style="visibility:hidden"/>
+                            </center>
+                        </td>
+                    </tr>
+                </table>
             </div>
             <div class="col-md-6">
             	<!-- Nav tabs -->
@@ -1067,5 +1098,16 @@
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="js/mdb.min.js"></script>
 </body>
+<script type="text/javascript">
 
+    function showImage(){
+        document.getElementById('loadingImage').style.visibility='visible';
+        document.getElementById('loadingImage2').style.visibility='visible';
+        document.getElementById('loadingImage3').style.visibility='visible';
+    }
+
+
+    </script>
 </html>
+
+
