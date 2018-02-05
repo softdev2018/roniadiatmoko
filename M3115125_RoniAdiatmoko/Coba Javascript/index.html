@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javascript</title>
+</head>
+<body>
+	<div id="main">
+		
+		<br>
+		<br>
+		<select id="racer">
+			<option>Pilih</option>
+			<option value="honda">Honda</option>
+			<option value="Yamaha">Yamaha</option>
+			<option value="Kawasaki">Kawasaki</option>
+		</select>
+	</div>
+	<button id="submit" onclick="showHide();">Click Me</button>
+	<p id="hasil" style="visibility:hidden">You Choose : </p>
+
+</body>
+<script type="text/javascript">
+	var prompt = prompt('Dengan siapa ?');
+	nama(prompt);
+	
+	function nama(nama){
+		var text = document.write("Selamat datang "+nama+'<br>');
+		return text;
+	}
+
+	function tangkap(){
+		var pilihan = document.getElementById("racer").value;
+		
+		console.log(pilihan);
+		nama(prompt);
+		var result = document.write(pilihan);
+		
+	}
+
+	function showHide(){
+		
+	    document.getElementById('hasil').style.visibility='visible';
+	    tangkap();
+	    
+
+	}
+	
+</script>
+</html>
