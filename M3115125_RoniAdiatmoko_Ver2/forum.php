@@ -1,3 +1,7 @@
+<?php
+    include "koneksi.php";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -86,73 +90,89 @@
             <div class="container">
             	<div class="row">
 					<center>
-					<div class="col-md 12">
-						<h2>Overview</h2>
-						<p align="justify">
-							Dua flagship dari Google, Google Pixel dengan layar <b>AMOLED 1920 x 1080 pixel</b>. Didukung <b>Qualcomm Snapdragon 835</b> sebagai dapur pacunya serta <b>RAM 4 Gb</b> dilengkapi <b>internal 64 Gb</b>.
-		                    <br><br>
-		                    Sedangkan <b>Google Pixel 2 XL</b> memiliki bentang <b>layar 6 inci tipe pOLED dengan kerapatan 2880 x 1440 piksel</b>, otak <b>Qualcomm Snapdragon 835</b>, <b>RAM 4GB</b>, dan <b>memori internal 64 atau 128GB</b>.
-		                    Di sektor sumber daya, Pixel 2 dibekali <b>baterai berkapasitas 2700 mAh, sementara Pixel 2 XL 3250 mAh</b>.
-		                    <br><br>
-		                    Google Pixel 2 dan Pixel 2 XL memiliki spesifikasi yang sama antara lain <b>kamera utama 12,2MP dengan laser dan dual pixel phase detection autofocus, OIS, EIS, bukaan f/1.8, serta kamera sekunder 8MP dengan bukaan lensa f/2.4</b>.
-						</p>
-					</div>
+					<div class="col-md-12">
+                        <h1><img src="assets/img/google pixel 2.jpg"></h1>
+                        
+                        <br>
+                    </div>
 					</center>
+                    <div class="col-md-12">
+                        Tambahkan komentar
+                        <form action="komentar.php" method="POST">
+                            <div class="form-group">
+                                <label for="email_input" class="bmd-label-floating">Email</label>
+                                <input type="email" class="form-control" name='email' id="email">
+                                <span class="bmd-help">Masukkan email</span>
+                            </div>
+                        
+                            <div class="form-group">
+                                <label for="komentar_input" class="bmd-label-floating">Komentar</label>
+                                <textarea name="komentar" class="form-control" rows="2"></textarea>
+                                <span class="bmd-help">Masukkan Komentar</span>
+                            </div>
+                            <br>
+                            <button class="btn btn-primary btn-round btn-block">Submit</button>
+                        </form>
+
+                        <hr>
+                        <center>
+                            <b>FORUM</b>
+                        </center>
+                        <hr>
+                        <?php
+                            $data = mysqli_query($connect, "SELECT * FROM komentar ORDER BY id_komentar DESC");
+                            while($komentar = mysqli_fetch_array($data)) {         
+                                
+                            
+                        ?>
+
+
+                        <div class="card card-nav-tabs card-plain">
+                            <div class="card-header card-header-danger">
+                                <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+                                <div class="nav-tabs-navigation">
+                                    <div class="nav-tabs-wrapper">
+                                        <ul class="nav nav-tabs" data-tabs="tabs">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#home" data-toggle="tab">
+                                                    <?php echo $komentar['email']; ?></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div><div class="card-body ">
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="home">
+                                       <?php echo '&nbsp;' .$komentar['komentar'].'<br>'; ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- akhir card nav -->
+
+                        <?php } ?>
+                    </div>
 				</div>
-            	<div class="row">
-	            	<div class="col-md 4">
-		    			<div class="card" style="width: 20rem;">
-						  <img class="card-img-top" src="assets/img/camera.jpg" alt="Card image cap">
-						  <div class="card-body">
-						    <h4 class="card-title">See What The Other Can't See</h4>
-						    <p class="card-text">Tanpa kamera ganda kami pastikan foto Anda tidak akan kalah</p>
-						    
-						  </div>
-						</div> 
-					</div>
-					<div class="col-md 4">		
-						<div class="card" style="width: 20rem;">
-						  <img class="card-img-top" src="assets/img/design.jpg" alt="Card image cap">
-						  <div class="card-body">
-						    <h4 class="card-title">Different From The Others</h4>
-						    <p class="card-text">Temukan keindahan dengan genggaman yang nyaman dan indah saat dipandang</p>
-						    
-						  </div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="card" style="width: 20rem;">
-						  <img class="card-img-top" src="assets/img/Snapdragon.jpg" alt="Card image cap">
-						  <div class="card-body">
-						    <h4 class="card-title">Snapdragon Inside</h4>
-						    <p class="card-text">Sebuah kejeniusan telah hidup dalam ponsel ini.</p>
-						    
-						  </div>
-						</div>
-					</div>
-				</div> <!-- akhir row -->
-
-
             </div><!-- akhir container -->
         </div><!-- akhir section -->
-      
-    <footer class="footer ">
-        <div class="container">
-            <nav class="pull-left">
-                
-            </nav>
-            <div class="copyright pull-right">
-                
-                        <a href="#">
-                            roniadiatmoko
-                        </a>
-                    &copy;
-                <script>
-                    document.write(new Date().getFullYear())
-                </script>
+    
+        <footer class="footer ">
+            <div class="container">
+                <nav class="pull-left">
+                    
+                </nav>
+                <div class="copyright pull-right">
+                    
+                            <a href="#">
+                                roniadiatmoko
+                            </a>
+                        &copy;
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script>
+                </div>
             </div>
-        </div>
-    </footer>
+        </footer>
+    
     <!--   Core JS Files   -->
     <script src="./assets/js/core/jquery.min.js"></script>
     <script src="./assets/js/core/popper.min.js"></script>
@@ -194,6 +214,7 @@
             });
         });
     </script>
+
 </body>
 
 </html>
